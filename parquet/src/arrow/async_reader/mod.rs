@@ -742,7 +742,7 @@ where
         for leaf_idx in 0..num_leaves {
             if mask.leaf_included(leaf_idx) {
                 let root_idx = schema.get_column_root_idx(leaf_idx);
-                if root_leaf_counts[root_idx] == 1 {
+                if root_leaf_counts[root_idx] == 1 && !root.is_list() {
                     included_leaves.push(leaf_idx);
                 }
             }
